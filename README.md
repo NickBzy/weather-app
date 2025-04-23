@@ -3,6 +3,7 @@
 A minimalistic weather app that displays current and upcoming (5 days) weather.
 
 ## Live Demo
+![Screenshot](./src/assets/img/demo-homepage.png)
 https://nickbzy.github.io/weather-app/
 
 ## 🚀 Features
