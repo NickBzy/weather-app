@@ -2,6 +2,9 @@
 
 A minimalistic weather app that displays current and upcoming (5 days) weather.
 
+## Live Demo
+https://nickbzy.github.io/weather-app/
+
 ## 🚀 Features
 
 - ⚙️ Webpack 5 setup with `webpack-dev-server`
