@@ -1,6 +1,6 @@
-# Webpack + ESLint + Prettier Starter Template
+# Weather App Using Visual Crossing Weather API
 
-A minimal and opinionated boilerplate for modern JavaScript development using Webpack, ESLint (Standard config), and Prettier.
+A minimalistic weather app that displays current and upcoming (5 days) weather.
 
 ## 🚀 Features
 
@@ -8,7 +8,7 @@ A minimal and opinionated boilerplate for modern JavaScript development using We
 - 🧹 ESLint with [Standard JS](https://standardjs.com/) config
 - 💅 Prettier for consistent code formatting
 - 📦 HTML/CSS support via `html-loader`, `style-loader`, and `css-loader`
-- 🚀 Easy deploy to GitHub Pages with `git subtree`
+- 🚀 Easy deploy to GitHub Pages with `npm run deploy`
 
 ---
 
