@@ -5,6 +5,8 @@ import {
   showWeatherModal,
   displayCurrentWeather,
   displayUpcomingWeather,
+  errorFetching,
+  resetError,
 } from "./domManipulator"
 import { fetchWeather } from "./apiService"
 
@@ -48,10 +50,9 @@ function search() {
   const topSearch = document.querySelector(".top .search")
   const topInput = document.querySelector("#top-search")
   topSearch.addEventListener("click", async function (event) {
-    hideWelcomePage()
-    showWeatherModal()
     try {
       // DISPLAY TOP CONTAINER FOR CURRENT WEATHER
+
       const data = await useApi(topInput.value.trim(), "c")
       console.log(data)
       const city = data.resolvedAddress
@@ -70,6 +71,9 @@ function search() {
         maxTemp,
         conditions
       )
+      resetError()
+      hideWelcomePage()
+      showWeatherModal()
 
       // DISPLAY BOTTOM CONTAINER FOR UPCOMING WEATHER
       for (let i = 1; i < 6; i++) {
@@ -80,6 +84,7 @@ function search() {
         displayUpcomingWeather(i, date, condition, low, high)
       }
     } catch (error) {
+      errorFetching()
       console.error("Error fetching weather:", error)
     }
   })
@@ -87,8 +92,6 @@ function search() {
   const mainSearch = document.querySelector(".main .search")
   const mainInput = document.querySelector("#main-search")
   mainSearch.addEventListener("click", async function (event) {
-    hideWelcomePage()
-    showWeatherModal()
     try {
       // DISPLAY TOP CONTAINER FOR CURRENT WEATHER
       const data = await useApi(mainInput.value.trim(), "c")
@@ -110,6 +113,10 @@ function search() {
         conditions
       )
 
+      resetError()
+      hideWelcomePage()
+      showWeatherModal()
+
       // DISPLAY BOTTOM CONTAINER FOR UPCOMING WEATHER
       for (let i = 1; i < 6; i++) {
         const date = data.days[i].datetime
@@ -119,6 +126,7 @@ function search() {
         displayUpcomingWeather(i, date, condition, low, high)
       }
     } catch (error) {
+      errorFetching()
       console.error("Error fetching weather:", error)
     }
   })
@@ -126,8 +134,6 @@ function search() {
   topInput.addEventListener("keydown", async function (event) {
     if (event.key === "Enter") {
       event.preventDefault()
-      hideWelcomePage()
-      showWeatherModal()
       try {
         // DISPLAY TOP CONTAINER FOR CURRENT WEATHER
         const data = await useApi(topInput.value.trim(), "c")
@@ -149,6 +155,10 @@ function search() {
           conditions
         )
 
+        resetError()
+        hideWelcomePage()
+        showWeatherModal()
+
         // DISPLAY BOTTOM CONTAINER FOR UPCOMING WEATHER
         for (let i = 1; i < 6; i++) {
           const date = data.days[i].datetime
@@ -158,6 +168,7 @@ function search() {
           displayUpcomingWeather(i, date, condition, low, high)
         }
       } catch (error) {
+        errorFetching()
         console.error("Error fetching weather:", error)
       }
     }
@@ -166,8 +177,6 @@ function search() {
   mainInput.addEventListener("keydown", async function (event) {
     if (event.key === "Enter") {
       event.preventDefault()
-      hideWelcomePage()
-      showWeatherModal()
       try {
         // DISPLAY TOP CONTAINER FOR CURRENT WEATHER
         const data = await useApi(mainInput.value.trim(), "c")
@@ -189,6 +198,10 @@ function search() {
           conditions
         )
 
+        resetError()
+        hideWelcomePage()
+        showWeatherModal()
+
         // DISPLAY BOTTOM CONTAINER FOR UPCOMING WEATHER
         for (let i = 1; i < 6; i++) {
           const date = data.days[i].datetime
@@ -198,6 +211,7 @@ function search() {
           displayUpcomingWeather(i, date, condition, low, high)
         }
       } catch (error) {
+        errorFetching()
         console.error("Error fetching weather:", error)
       }
     }

@@ -34,6 +34,7 @@
   flex: 1;
   background: rgba(80, 144, 240, 0.651);
   transition: all 0.5s ease;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,6 +74,16 @@
 
 .weather-icon {
   width: 120px;
+}
+
+/* API ERROR MESSAGE */
+.error-fetching {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  text-align: center;
 }
 
 /* Responsive behavior */

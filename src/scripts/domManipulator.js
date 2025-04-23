@@ -142,9 +142,26 @@ function displayUpcomingWeather(index, date, condition, low, high) {
   setIcon(condition, domIcon)
 }
 
+function errorFetching() {
+  const domError = document.querySelector(".error-fetching")
+  const domWelcome = document.querySelector("#welcome")
+  const domWelcomeMessage = document.querySelector(".welcome-container h3")
+
+  domWelcome.classList.add("hidden")
+  domWelcomeMessage.classList.add("hidden")
+  domError.classList.remove("hidden")
+}
+
+function resetError() {
+  const domError = document.querySelector(".error-fetching")
+  domError.classList.add("hidden")
+}
+
 export {
   hideWelcomePage,
   showWeatherModal,
   displayCurrentWeather,
   displayUpcomingWeather,
+  errorFetching,
+  resetError,
 }
