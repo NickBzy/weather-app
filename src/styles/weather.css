@@ -1,0 +1,176 @@
+.weather-page {
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  position: fixed;
+  width: clamp(450px, 60%, 1200px);
+  height: 60vh;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.37);
+  transition: transform 0.5s ease;
+  z-index: 10;
+  opacity: 0;
+  border-radius: 40px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.weather-page.active {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* TOP CONTAINER */
+.current-weather {
+  border-radius: 20px;
+  padding: 20px;
+  flex: 1;
+  background: rgba(80, 144, 240, 0.651);
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.current-weather .top {
+  height: 20%;
+}
+
+.top .city-time {
+  display: flex;
+  justify-content: space-between;
+}
+
+.city-time {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+#current-temp {
+  font-weight: bold;
+  font-size: clamp(2rem, 4vw, 6rem);
+}
+
+.low-high {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(1rem, 1.2vw, 4rem);
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather-icon {
+  width: 120px;
+}
+
+/* Responsive behavior */
+@media (max-width: 868px) {
+  .current-weather {
+    flex: 0.3;
+  }
+
+  .upcoming-weather {
+    flex: 0.7;
+  }
+}
+
+/* UPCOMING WEATHER 
+   BOTTOM CONTAINER*/
+.upcoming-weather {
+  font-size: clamp(1rem, 1.1vw, 2.5rem);
+  border-radius: 20px;
+  padding: 20px;
+  flex: 1;
+  background: rgba(80, 144, 240, 0.651);
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.next-days {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  flex: 1;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.next-days .weather-icon {
+  width: 60px;
+}
+
+.next-days::-webkit-scrollbar {
+  width: 8px;
+}
+
+.next-days::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.next-days::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.next-days::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 868px) {
+  .next-days {
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr;
+  }
+}
+
+.next-days div {
+  background-color: transparent;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.next-days {
+  text-align: center;
+}
+
+/* WEATHER ICONS */
+svg.cloudy {
+  fill: rgb(218, 214, 214);
+}
+
+svg.sunny {
+  fill: rgb(255, 225, 55);
+}
+
+svg.rainy {
+  fill: rgb(33, 103, 209);
+}
+
+svg.snowy {
+  fill: white;
+}
+
+svg.windy {
+  fill: rgb(171, 218, 240);
+}
